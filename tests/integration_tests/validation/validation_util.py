@@ -11,8 +11,8 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, cast
 
 from arelle_test_engine.constraint import Constraint
-from arelle_test_engine.testcase_set import TestcaseSet
 from arelle_test_engine.test_engine_options import TestEngineOptions
+from arelle_test_engine.testcase_set import TestcaseSet
 from tests.integration_tests.integration_test_util import get_test_data
 from tests.integration_tests.validation.conformance_suite_config import (
     ConformanceSuiteConfig,

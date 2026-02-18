@@ -11,9 +11,9 @@ from typing import TYPE_CHECKING
 import pytest
 from arelle import PackageManager, PluginManager
 
-from arelle_test_engine.testcase_set import TestcaseSet
 from arelle_test_engine.test_engine import TestEngine
 from arelle_test_engine.test_engine_options import TestEngineOptions
+from arelle_test_engine.testcase_set import TestcaseSet
 
 if TYPE_CHECKING:
     from _pytest.mark import ParameterSet
