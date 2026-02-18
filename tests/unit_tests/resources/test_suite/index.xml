@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcases name="test">
+<testcases name="test_suite">
     <testcase uri="testcase.xml" />
 </testcases>
