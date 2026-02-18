@@ -231,6 +231,16 @@ ADDITIONAL_INVALID_ERRORS = {
         "EDINET.EC2005E": 2,
         "EDINET.EC3002E": 2,
     },
+    # TODO: Revisit below after test engine merges.
+    "EC5032E/index.xml:invalid01": {
+        "FileNotLoadable": 1,
+    },
+    "EC5700W.GFM.1.10.12/index.xml:invalid01": {
+        "EDINET.EC2005E": 3,
+        "EDINET.EC3002E": 3,
+        "EDINET.EC3005E": 6,
+        "EDINET.EC8029W": 11,
+    },
 }
 
 EXPECTED_ADDITIONAL_TESTCASE_ERRORS: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
