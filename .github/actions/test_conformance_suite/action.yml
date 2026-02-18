@@ -57,9 +57,9 @@ runs:
     - name: Run conformance suite tests with pytest
       shell: bash
       run: |
-        mkdir .test_engine
+        mkdir test_results
         pytest -s --disable-warnings \
-        --junitxml=.test_engine/junit.xml \
+        --junitxml=test_results/junit.xml \
         --offline \
         --log-to-file \
         --download-missing \
@@ -70,7 +70,7 @@ runs:
     - name: Cat logs
       if: always()
       shell: bash
-      run: tail -n+1 .test_engine/**/*.txt
+      run: find test_results/ -type f -name "*.txt" -exec tail -n+1 {} +
     - id: build-artifact-name
       if: always()
       shell: bash
@@ -82,4 +82,4 @@ runs:
       with:
         name: ${{ steps.build-artifact-name.outputs.artifact-name }}
         if-no-files-found: error
-        path: '.test_engine/*'
+        path: test_results/**

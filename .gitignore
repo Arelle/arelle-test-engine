@@ -1,5 +1,6 @@
-__pycache__
 .test_engine
 .tox
-tests/resources
+__pycache__
 arelle_test_engine.egg-info
+test_results
+tests/resources
