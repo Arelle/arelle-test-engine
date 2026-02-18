@@ -20,7 +20,7 @@ class TestEngineOptions:
     custom_compare_patterns: list[tuple[str, str]] = field(default_factory=list)
     disclosure_system_by_id: list[tuple[str, str]] = field(default_factory=list)
     filters: list[str] = field(default_factory=list)
-    ignore_levels: frozenset[ErrorLevel] = field(default_factory=frozenset)
+    ignore_levels: frozenset[ErrorLevel] = field(default_factory=lambda: frozenset({ErrorLevel.OK}))
     log_directory: Path | None = None
     match_all: bool = True
     name: str | None = None
