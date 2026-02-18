@@ -1,5 +1,19 @@
+[project]
+name = "arelle-test-engine"
+version = "0.0.0"
+readme = "README.md"
+license = "Apache-2.0"
+description = "A test engine for Arelle."
+authors = [
+    {name = "arelle.org", email = "support@arelle.org"}
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["arelle_test_engine*"]
+
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["arelle_test_engine"]
 testpaths = ["tests"]
 
 [tool.mypy]
