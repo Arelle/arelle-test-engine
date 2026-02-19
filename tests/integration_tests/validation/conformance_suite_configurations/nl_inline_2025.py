@@ -38,14 +38,14 @@ config = ConformanceSuiteConfig(
     ],
     disclosure_system="NL-INLINE-2025",
     disclosure_system_by_prefix=[
-                                    (f"tests/{s}", "NL-INLINE-2025-GAAP-OTHER-PREVIEW") for s in [
+        (f"tests/{s}", "NL-INLINE-2025-GAAP-OTHER-PREVIEW") for s in [
             "G5-1-3_1/index.xml",
             "G5-1-3_2/index.xml",
             "G7-1-4_1/index.xml",
             "G7-1-4_2/index.xml",
         ]
     ] + [
-                                    (f"tests/{s}", "NL-INLINE-MULTI-TARGET") for s in [
+        (f"tests/{s}", "NL-INLINE-MULTI-TARGET") for s in [
             "G6-1-3_1/index.xml",
             "G6-1-3_2/index.xml",
             "G6-1-3_3/index.xml",

@@ -29,6 +29,8 @@ warn_unused_configs = true
 # --- ignore modules ---
 [[tool.mypy.overrides]]
 module = [
+    'arelle.*',
+    'tests.plugin.*',
     'tests.unit_tests.*',
 ]
 ignore_errors = true
