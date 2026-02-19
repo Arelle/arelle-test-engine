@@ -40,6 +40,7 @@ def _build_test_variation(
         name=name,
         parameters="",
         read_first_uris=[f"{name}.zip"],
+        reference="ref",
         constraint_set=ConstraintSet(
             constraints=constraints or [],
             match_all=match_all,
