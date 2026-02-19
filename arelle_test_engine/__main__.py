@@ -104,6 +104,14 @@ def _parse(args: list[str]) -> TestEngineOptions:
         help="The number of worker processes to use for parallel execution. If not "
              "provided, the number of available CPU cores will be used.",
     )
+    parser.add_argument(
+        "--report",
+        action="append",
+        type=Path,
+        dest="reports",
+        default=None,
+        help="Generate report(s) in the following formats: CSV, HTML, JSON, XLSX, XML.",
+    )
 
     parsed_args = parser.parse_args(args)
 
@@ -139,6 +147,7 @@ def _parse(args: list[str]) -> TestEngineOptions:
         plugins_by_id=merged["plugins_by_id"],
         parallel=merged["parallel"],
         processes=merged["processes"],
+        reports=merged["reports"],
     )
 
 

@@ -14,13 +14,13 @@ from pathlib import Path
 from queue import Queue
 from typing import Any
 
+from arelle import ModelDocument
 from arelle.api.Session import Session
 from arelle.ModelValue import QName
 from arelle.RuntimeOptions import RuntimeOptions
 from arelle.UrlUtil import IXDS_DOC_SEPARATOR, IXDS_SURROGATE
 
 import arelle_test_engine.constants
-from arelle import ModelDocument
 from arelle_test_engine.actual_error import ActualError
 from arelle_test_engine.compare_context import CompareContext
 from arelle_test_engine.constraint import Constraint
@@ -34,6 +34,7 @@ from arelle_test_engine.test_engine_options import TestEngineOptions
 from arelle_test_engine.test_engine_result import TestEngineResult
 from arelle_test_engine.testcase import Testcase
 from arelle_test_engine.testcase_result import TestcaseResult
+from arelle_test_engine.testcase_result_report import save_report
 from arelle_test_engine.testcase_set import TestcaseSet
 from arelle_test_engine.utils import norm_path
 
@@ -480,7 +481,22 @@ class TestEngine:
             f"\n\tSkipped: \t{skipped}"
             f"\n\tTotal:  \t{len(results)}",
         )
-        return TestEngineResult(
+        test_engine_result = TestEngineResult(
             testcase_results=results,
             testcase_set=testcase_set,
         )
+        exceptions = []
+        for report in self._test_engine_options.reports:
+            try:
+                try:
+                    print(f"Generating report: '{report}'.")
+                    save_report(test_engine_result, report)
+                except Exception as e:
+                    msg = f"Error occurred while generating report '{report}'."
+                    print(msg)
+                    raise Exception(msg) from e
+            except Exception as e:
+                exceptions.append(e)
+        if exceptions:
+            raise ExceptionGroup("One or more errors occurred while generating reports.", exceptions)
+        return test_engine_result

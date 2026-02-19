@@ -28,3 +28,4 @@ class TestEngineOptions:
     plugins_by_id: list[tuple[str, frozenset[str]]] = field(default_factory=list)
     parallel: bool = False
     processes: int | None = None
+    reports: list[Path] = field(default_factory=list)
