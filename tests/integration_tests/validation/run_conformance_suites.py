@@ -202,7 +202,7 @@ def run_conformance_suites(
             if full_run:
                 expected_results_path = CONFORMANCE_SUITE_EXPECTED_RESOURCES_DIRECTORY / Path(config.name).with_suffix(".csv")
                 if expected_results_path.exists():
-                    save_diff_html_file(expected_results_path, actual_results_path, Path(f".test_engine/{config.name}/diff.html"))
+                    save_diff_html_file(expected_results_path, actual_results_path, Path(f"test_results/{config.name}/diff.html"))
         all_results.extend(results)
     assert not preload_errors, \
         f"Conformance suite misconfigurations detected during preloading of testcases: {preload_errors}"

@@ -9,7 +9,7 @@ on:
       - '.github/actions/get_conformance_suites_matrix/**'
       - '.github/actions/test_conformance_suite/**'
       - '.github/workflows/integration-tests.yml'
-      - 'arelle/**'
+      - 'arelle_test_engine/**'
       - 'requirements*.txt'
       - 'tests/**'
 
@@ -34,11 +34,29 @@ jobs:
       matrix:
         test: ${{ fromJson(needs.find-conformance-suites.outputs.matrix) }}
     # TODO: Skip private configs until integrated with Arelle or secrets added to this repo.
-    if: ${{ matrix.test.environment == 'none' }}
-    environment: ${{ matrix.test.environment }}
+    # environment: ${{ matrix.test.environment }}
     steps:
-      - uses: actions/checkout@v6.0.2
+      - name: Checkout Arelle
+        uses: actions/checkout@v6.0.2
+        with:
+          repository: Arelle/Arelle
+          ref: '2.38.15'
+      - name: Checkout Arelle Test Engine
+        uses: actions/checkout@v6.0.2
+        with:
+          path: arelle_test_engine
+      - name: Install Arelle Test Engine Workflows & Tests
+        shell: bash
+        run: |
+          rm -rf .github/*
+          mv arelle_test_engine/.github/* .github/
+          rm -rf tests/integration_tests/*
+          mv arelle_test_engine/tests/integration_tests/* tests/integration_tests/
+          rm -rf tests/plugin/*
+          mv arelle_test_engine/tests/plugin/* tests/plugin/
       - name: Test Conformance Suite
+        # TODO: Skip private configs until integrated with Arelle or secrets added to this repo.
+        if: ${{ matrix.test.environment == 'none' }}
         uses: ./.github/actions/test_conformance_suite
         with:
           name: ${{ matrix.test.name }}

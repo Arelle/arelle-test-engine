@@ -49,11 +49,17 @@ runs:
       run: |
         python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements-test.txt${{ inputs.name == 'efm_current' && ' -r requirements-plugins.txt' || '' }}
+    - name: Install Arelle Test Engine
+      shell: bash
+      run: |
+        pip install ./arelle_test_engine
+        rm -rf arelle_test_engine
     - name: Run conformance suite tests with pytest
       shell: bash
       run: |
+        mkdir test_results
         pytest -s --disable-warnings \
-        --junitxml=conf-junit.xml \
+        --junitxml=test_results/junit.xml \
         --offline \
         --log-to-file \
         --download-missing \
@@ -64,7 +70,7 @@ runs:
     - name: Cat logs
       if: always()
       shell: bash
-      run: tail -n+1 conf-*log.txt
+      run: find test_results/ -type f -name "*.txt" -exec tail -n+1 {} +
     - id: build-artifact-name
       if: always()
       shell: bash
@@ -76,4 +82,4 @@ runs:
       with:
         name: ${{ steps.build-artifact-name.outputs.artifact-name }}
         if-no-files-found: error
-        path: 'conf-*'
+        path: test_results/**

@@ -151,7 +151,7 @@ def get_conformance_suite_test_results_with_shards(
             filters=shard_test_ids,
             ignore_levels=config.ignore_levels,
             index_file=config.entry_point_path,
-            log_directory=(Path(".test_engine") / config.name / "tests") if log_to_file else None,
+            log_directory=(Path("test_results") / config.name / "tests") if log_to_file else None,
             match_all=config.test_case_result_options == "match-all",
             name=config.name,
             options=runtime_options,
@@ -211,7 +211,7 @@ def get_conformance_suite_test_results_without_shards(
             filters=testcase_filters or [],
             ignore_levels=config.ignore_levels,
             index_file=config.entry_point_path,
-            log_directory=(Path(".test_engine") / config.name / "tests") if log_to_file else None,
+            log_directory=(Path("test_results") / config.name / "tests") if log_to_file else None,
             match_all=config.test_case_result_options == "match-all",
             name=config.name,
             options=runtime_options,
@@ -247,7 +247,7 @@ def get_runtime_options(
         args["plugins"] = "|".join(sorted(plugins))
     shard_str = f"-s{shard}" if use_shards else ""
     if build_cache:
-        plugin_options["cacheBuilderPath"] = str(Path(f".test_engine/{config.name}/{shard_str}-cache.zip"))
+        plugin_options["cacheBuilderPath"] = str(Path(f"test_results/{config.name}/{shard_str}-cache.zip"))
     if config.capture_warnings:
         args["testcaseResultsCaptureWarnings"] = True
     if offline or config.runs_without_network:
@@ -294,7 +294,7 @@ def save_actual_results_file(config: ConformanceSuiteConfig, results: list[Param
         actual_codes = json.loads(actual_json)
         for code, count in actual_codes.items():
             rows.append((testcase_id, code, count))
-    output_filepath = Path(f".test_engine/{config.name}/actual.csv")
+    output_filepath = Path(f"test_results/{config.name}/actual.csv")
     with open(output_filepath, "w") as file:
         writer = csv.writer(file)
         writer.writerows(sorted(rows))
@@ -338,5 +338,5 @@ def save_timing_file(config: ConformanceSuiteConfig, results: list[ParameterSet]
         }
         durations["<mean>"] = duration_mean
         durations["<stdev>"] = duration_stdev
-    with open(Path(f".test_engine/{config.name}/timing.json"), "w") as file:
+    with open(Path(f"test_results/{config.name}/timing.json"), "w") as file:
         json.dump(durations, file, indent=4)

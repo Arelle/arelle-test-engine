@@ -104,6 +104,12 @@ def main() -> None:
     for os in [MACOS, WINDOWS]:
         output.extend(generate_config_entries(efm_current, os=os, python_version=LATEST_PYTHON_VERSION, minimal=True))
 
+    # TODO: Skip private configs until integrated with Arelle or secrets added to this repo.
+    output = [
+        entry
+        for entry in output
+        if entry["environment"] == "none"
+    ]
     json.dump(output, sys.stdout, indent=4)
     print()
 
