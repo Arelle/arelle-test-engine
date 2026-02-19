@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v6.0.2
         with:
           repository: Arelle/Arelle
-          ref: '2.38.12'
+          ref: '2.38.15'
       - name: Checkout Arelle Test Engine
         uses: actions/checkout@v6.0.2
         with:
