@@ -8,8 +8,8 @@ from dataclasses import replace
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from arelle_test_engine.testcase_set import TestcaseSet
 from arelle_test_engine.test_engine import load_testcase_index
+from arelle_test_engine.testcase_set import TestcaseSet
 from tests.integration_tests.validation.conformance_suite_config import (
     ConformanceSuiteAssetConfig,
     ConformanceSuiteConfig,

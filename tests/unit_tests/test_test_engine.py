@@ -12,14 +12,14 @@ from arelle_test_engine.actual_error import ActualError
 from arelle_test_engine.constraint import Constraint
 from arelle_test_engine.constraint_set import ConstraintSet
 from arelle_test_engine.error_level import ErrorLevel
-from arelle_test_engine.testcase import Testcase
-from arelle_test_engine.testcase_set import TestcaseSet
 from arelle_test_engine.test_engine import (
     TestEngine,
     _block_codes,
     _build_entrypoint_uris,
 )
 from arelle_test_engine.test_engine_options import TestEngineOptions
+from arelle_test_engine.testcase import Testcase
+from arelle_test_engine.testcase_set import TestcaseSet
 
 
 def _build_test_variation(

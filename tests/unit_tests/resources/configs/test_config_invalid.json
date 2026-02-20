@@ -1,0 +1,47 @@
+{
+  "index_file": "tests/unit_tests/resources/test_suite/index.xml",
+  "name": "All",
+  "log_directory": ".test_engine/all",
+  "processes": 8,
+  "filters": [
+      "filter1",
+      "filter2"
+  ],
+  "ignore_levels": [
+      "OK",
+      "SATISFIED",
+      "WARNING"
+  ],
+  "additional_constraints": [
+      [
+          "testcase1",
+          [
+            { "count": 1, "pattern": "*" },
+            { "count": 2, "level": "WARNING", "pattern": "1.2.3"  }
+          ]
+      ],
+      [
+          "testcase2",
+          [
+            { "count": 3, "level": "ERROR", "pattern": "1.2.3" }
+          ]
+      ]
+  ],
+  "custom_compare_patterns": [
+      ["pattern1", "replacement1"],
+      ["pattern2", "replacement2"]
+  ],
+  "disclosure_system_by_id": [
+      ["ds1", "http://example.com/ds1"],
+      ["ds2", "http://example.com/ds2"]
+  ],
+  "plugins_by_id": [
+      ["testcase1", ["plugin1", "plugin2"]],
+      ["testcase2", ["plugin3"]]
+  ],
+  "options": {
+    "option1": "value1",
+    "option2": 2,
+    "option3": true,
+    "option4": [1, 2, 3]
+  }

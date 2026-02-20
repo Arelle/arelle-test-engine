@@ -14,13 +14,13 @@ from pathlib import Path
 from queue import Queue
 from typing import Any
 
-from arelle import ModelDocument
 from arelle.api.Session import Session
 from arelle.ModelValue import QName
 from arelle.RuntimeOptions import RuntimeOptions
 from arelle.UrlUtil import IXDS_DOC_SEPARATOR, IXDS_SURROGATE
 
 import arelle_test_engine.constants
+from arelle import ModelDocument
 from arelle_test_engine.actual_error import ActualError
 from arelle_test_engine.compare_context import CompareContext
 from arelle_test_engine.constraint import Constraint
@@ -30,11 +30,11 @@ from arelle_test_engine.error_level import ErrorLevel
 from arelle_test_engine.loader.csv_testcase_loader import CsvTestcaseLoader
 from arelle_test_engine.loader.testcase_loader import TestcaseLoader
 from arelle_test_engine.loader.xml_testcase_loader import XmlTestcaseLoader
+from arelle_test_engine.test_engine_options import TestEngineOptions
+from arelle_test_engine.test_engine_result import TestEngineResult
 from arelle_test_engine.testcase import Testcase
 from arelle_test_engine.testcase_result import TestcaseResult
 from arelle_test_engine.testcase_set import TestcaseSet
-from arelle_test_engine.test_engine_options import TestEngineOptions
-from arelle_test_engine.test_engine_result import TestEngineResult
 from arelle_test_engine.utils import norm_path
 
 CWD = Path.cwd()

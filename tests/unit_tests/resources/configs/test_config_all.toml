@@ -1,0 +1,67 @@
+# --- Metadata and Basic Configuration ---
+index_file = "tests/unit_tests/resources/test_suite/index.xml"
+name = "All"
+log_directory = ".test_engine/all"
+parallel = true
+processes = 8
+
+# --- Testing Logic Controls ---
+compare_formula_output = true
+match_all = false  # Overrides the default True value
+
+# --- Filters and Error Levels ---
+# list[str]
+filters = [
+    "filter1",
+    "filter2"
+]
+
+# list[str] -> converted to frozenset[ErrorLevel]
+ignore_levels = [
+    "OK",
+    "SATISFIED",
+    "WARNING"
+]
+
+# list[tuple[str, list[Constraint]]]
+# Formatted as an array of arrays to preserve the tuple structure
+additional_constraints = [
+    [
+        "testcase1",
+        [
+            { count = 1, pattern = "*" },
+            { count = 2, level = "WARNING", pattern = "1.2.3"  }
+        ]
+    ],
+    [
+        "testcase2",
+        [
+            { count = 3, level = "ERROR", pattern = "1.2.3" }
+        ]
+    ]
+]
+
+# list[tuple[str, str]]
+custom_compare_patterns = [
+    ["pattern1", "replacement1"],
+    ["pattern2", "replacement2"]
+]
+
+# list[tuple[str, str]]
+disclosure_system_by_id = [
+    ["ds1", "http://example.com/ds1"],
+    ["ds2", "http://example.com/ds2"]
+]
+
+# list[tuple[str, frozenset[str]]]
+plugins_by_id = [
+    ["testcase1", ["plugin1", "plugin2"]],
+    ["testcase2", ["plugin3"]]
+]
+
+# dict[str, Any]
+[options]
+option1 = "value1"
+option2 = 2
+option3 = true
+option4 = [1, 2, 3]

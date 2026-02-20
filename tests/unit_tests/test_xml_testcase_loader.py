@@ -63,7 +63,7 @@ class TestXmlTestcaseLoader:
             ],
         }
         loader = XmlTestcaseLoader()
-        result = loader.load(Path("tests/unit_tests/resources/index.xml"))
+        result = loader.load(Path("tests/unit_tests/resources/test_suite/index.xml"))
         assert len(result.load_errors) == 0
         assert len(result.testcases) == 9
         for testcase in result.testcases:
