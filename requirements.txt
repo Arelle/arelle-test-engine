@@ -1,1 +1,1 @@
-arelle-release[EFM,ESEF,XULE]==2.38.15
+arelle-release[EFM,ESEF,XULE]==2.38.16
