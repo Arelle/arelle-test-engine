@@ -35,9 +35,9 @@ Alternatively, copying the directory will also work.
 ## Using the Test Engine
 
 ### Use as a Command Line Tool
-```bash
+```
 python -m arelle_test_engine --help
-usage: python -m arelle_test_engine [-h] [--config CONFIG] [--compare-formula-output] [--filter FILTERS] [--ignore-level {ok,satisfied,not_satisfied,warning,error}] [--log-directory LOG_DIRECTORY] [--match {all,any}] [--name NAME] [--parallel] [--series] [--processes PROCESSES] [index_file]
+usage: python -m arelle_test_engine [-h] [--config CONFIG] [--compare-formula-output] [--filter FILTERS] [--ignore-level {ok,satisfied,not_satisfied,warning,error}] [--log-directory LOG_DIRECTORY] [--match {all,any}] [--name NAME] [--parallel] [--series] [--processes PROCESSES] [--report REPORTS] [index_file]
 
 Arelle Test Engine
 
@@ -60,6 +60,7 @@ options:
   --series              Whether to execute testcases in series.
   --processes PROCESSES
                         The number of worker processes to use for parallel execution. If not provided, the number of available CPU cores will be used.
+  --report REPORTS      Generate report(s) in the following formats: CSV, HTML, JSON, XLSX, XML.
 ```
 
 The Arelle Test Engine can be uses as a command line tool by passing options by:
