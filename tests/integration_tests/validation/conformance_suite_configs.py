@@ -102,6 +102,9 @@ from tests.integration_tests.validation.conformance_suite_configurations.ros_cur
 from tests.integration_tests.validation.conformance_suite_configurations.uksef import (
     config as uksef,
 )
+from tests.integration_tests.validation.conformance_suite_configurations.test_suite import (
+    config as test_suite,
+)
 from tests.integration_tests.validation.conformance_suite_configurations.xbrl_2_1 import (
     config as xbrl_2_1,
 )
@@ -184,6 +187,7 @@ ALL_CONFORMANCE_SUITE_CONFIGS: tuple[ConformanceSuiteConfig, ...] = (
     nl_inline_2024,
     nl_inline_2025,
     ros_current,
+    test_suite,
     uksef,
     xbrl_2_1,
     xbrl_calculations_1_1,

@@ -1,0 +1,8 @@
+﻿Id,Name,Description,Reference,ReadMeFirst,Status,Expected,Actual
+tests/001_valid/testcase.xml:pass,,Testcase expects valid.,,instance_valid.xbrl,pass,,
+tests/001_valid/testcase.xml:fail-invalid,,Testcase expects invalid.,,instance_valid.xbrl,fail,[ERROR](any),
+tests/001_valid/testcase.xml:fail-code,,Testcase expects specific code.,,instance_valid.xbrl,fail,[ERROR]Example,
+tests/002_invalid/testcase.xml:fail-valid,,Testcase expects valid. Instance is invalid.,,instance_invalid.xbrl,fail,,"[ERROR]xmlSchema:elementUnexpected, [ERROR]xbrl:schemaImportMissing"
+tests/002_invalid/testcase.xml:pass-invalid,,Testcase expects invalid. Instance is invalid.,,instance_invalid.xbrl,pass,[ERROR](any),"[ERROR]xmlSchema:elementUnexpected, [ERROR]xbrl:schemaImportMissing"
+tests/002_invalid/testcase.xml:pass-code-match,,Testcase expects specific code. Instance yields expected code.,,instance_invalid.xbrl,pass,[ERROR]xbrl:schemaImportMissing,"[ERROR]xmlSchema:elementUnexpected, [ERROR]xbrl:schemaImportMissing"
+tests/002_invalid/testcase.xml:fail-code-mismatch,,Testcase expects specific code. Instance yields other code.,,instance_invalid.xbrl,fail,[ERROR]xbrl:example,"[ERROR]xmlSchema:elementUnexpected, [ERROR]xbrl:schemaImportMissing"

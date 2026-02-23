@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+        targetNamespace="http://example.com/example"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xbrli="http://www.xbrl.org/2003/instance"
+        xmlns:ex="http://example.com/example"
+        elementFormDefault="qualified">
+
+    <import
+            namespace="http://www.xbrl.org/2003/instance"
+            schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd" />
+
+    <element
+            name="Value"
+            id="ex_Value"
+            type="xbrli:monetaryItemType"
+            substitutionGroup="xbrli:item"
+            xbrli:periodType="instant"
+            nillable="true" />
+</schema>

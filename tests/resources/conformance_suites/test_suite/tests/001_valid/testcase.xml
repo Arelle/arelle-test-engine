@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<testcase xmlns="http://xbrl.org/2008/conformance"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xbrl.org/2005/conformance https://www.xbrl.org/2005/conformance.xsd">
+    <creator>
+        <name>Arelle</name>
+        <email>support@arelle.org</email>
+    </creator>
+    <number>1</number>
+    <name>Valid instance.</name>
+    <reference specification="Arelle Test Engine" id="no reference"/>
+    <variation id="pass">
+        <description>Testcase expects valid.</description>
+        <data>
+            <instance readMeFirst="true">instance_valid.xbrl</instance>
+        </data>
+        <result expected="valid"/>
+    </variation>
+    <variation id="fail-invalid">
+        <description>Testcase expects invalid.</description>
+        <data>
+            <instance readMeFirst="true">instance_valid.xbrl</instance>
+        </data>
+        <result expected="invalid"/>
+    </variation>
+    <variation id="fail-code">
+        <description>Testcase expects specific code.</description>
+        <data>
+            <instance readMeFirst="true">instance_valid.xbrl</instance>
+        </data>
+        <result>
+            <error>Example</error>
+        </result>
+    </variation>
+</testcase>

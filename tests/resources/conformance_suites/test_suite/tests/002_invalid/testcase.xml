@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<testcase xmlns="http://xbrl.org/2008/conformance"
+          xmlns:xbrl="http://www.xbrl.org/2003/instance"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xbrl.org/2005/conformance https://www.xbrl.org/2005/conformance.xsd">
+    <creator>
+        <name>Arelle</name>
+        <email>support@arelle.org</email>
+    </creator>
+    <number>1</number>
+    <name>001</name>
+    <reference specification="Arelle Test Engine" id="no reference"/>
+    <variation id="fail-valid">
+        <description>Testcase expects valid. Instance is invalid.</description>
+        <data>
+            <instance readMeFirst="true">instance_invalid.xbrl</instance>
+        </data>
+        <result expected="valid"/>
+    </variation>
+    <variation id="pass-invalid">
+        <description>Testcase expects invalid. Instance is invalid.</description>
+        <data>
+            <instance readMeFirst="true">instance_invalid.xbrl</instance>
+        </data>
+        <result expected="invalid"/>
+    </variation>
+    <variation id="pass-code-match">
+        <description>Testcase expects specific code. Instance yields expected code.</description>
+        <data>
+            <instance readMeFirst="true">instance_invalid.xbrl</instance>
+        </data>
+        <result nonStandardErrorCodes="true">
+            <error>xbrl:schemaImportMissing</error>
+        </result>
+    </variation>
+    <variation id="fail-code-mismatch">
+        <description>Testcase expects specific code. Instance yields other code.</description>
+        <data>
+            <instance readMeFirst="true">instance_invalid.xbrl</instance>
+        </data>
+        <result nonStandardErrorCodes="true">
+            <error>xbrl:example</error>
+        </result>
+    </variation>
+</testcase>

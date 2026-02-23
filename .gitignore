@@ -4,4 +4,6 @@
 __pycache__
 arelle_test_engine.egg-info
 test_results
-tests/resources
+tests/resources/conformance_suites/*
+!tests/resources/conformance_suites/test_suite/
+tests/resources/packages/*

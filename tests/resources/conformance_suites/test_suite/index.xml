@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type='text/xsl' href='stylesheets/documentation.xsl'?>
+<documentation
+        name='Arelle Test Engine - Test Suite'
+        date='2026-03-01'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:noNamespaceSchemaLocation='schemas/documentation.xsd'>
+
+    <testcases title='Testcases' root='tests'>
+        <testcase uri="001_valid/testcase.xml"/>
+        <testcase uri="002_invalid/testcase.xml"/>
+    </testcases>
+</documentation>
+
