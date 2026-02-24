@@ -15,7 +15,7 @@ Improves on Arelle's internal test suite validation process:
 
 ## Installing the Test Engine
 
-### Standalone Installation {#standalone-installation}
+### Standalone Installation
 To use the Arelle Test Engine separately from a local copy of the Arelle source code,
 clone this repository and install dependencies:
 ```bash
