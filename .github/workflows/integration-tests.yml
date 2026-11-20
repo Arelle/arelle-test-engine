@@ -21,7 +21,7 @@ jobs:
     outputs:
       matrix: ${{ steps.build-conformance-suite-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v7.0.1
       - id: build-conformance-suite-matrix
         uses: ./.github/actions/get_conformance_suites_matrix
 
@@ -37,12 +37,12 @@ jobs:
     # environment: ${{ matrix.test.environment }}
     steps:
       - name: Checkout Arelle
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           repository: Arelle/Arelle
           ref: '2.38.15'
       - name: Checkout Arelle Test Engine
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           path: arelle_test_engine
       - name: Install Arelle Test Engine Workflows & Tests
